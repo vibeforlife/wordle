@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle Game</title>
+    
+    <!-- Favicon for desktop browsers -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23121213'/><rect x='10' y='10' width='15' height='15' fill='%23538d4e'/><rect x='30' y='10' width='15' height='15' fill='%23b59f3b'/><rect x='50' y='10' width='15' height='15' fill='%233a3a3c'/><rect x='70' y='10' width='15' height='15' fill='%23538d4e'/><rect x='10' y='35' width='15' height='15' fill='%23b59f3b'/><rect x='30' y='35' width='15' height='15' fill='%233a3a3c'/><rect x='50' y='35' width='15' height='15' fill='%23538d4e'/><rect x='70' y='35' width='15' height='15' fill='%23b59f3b'/></svg>">
+    
+    <!-- Apple Touch Icon for iOS -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' fill='%23121213'/><rect x='18' y='18' width='27' height='27' fill='%23538d4e'/><rect x='54' y='18' width='27' height='27' fill='%23b59f3b'/><rect x='90' y='18' width='27' height='27' fill='%233a3a3c'/><rect x='126' y='18' width='27' height='27' fill='%23538d4e'/><rect x='18' y='63' width='27' height='27' fill='%23b59f3b'/><rect x='54' y='63' width='27' height='27' fill='%233a3a3c'/><rect x='90' y='63' width='27' height='27' fill='%23538d4e'/><rect x='126' y='63' width='27' height='27' fill='%23b59f3b'/><text x='90' y='140' font-family='Arial, sans-serif' font-size='24' font-weight='bold' text-anchor='middle' fill='%23ffffff'>WORDLE</text></svg>">
+    
+    <!-- Android specific manifest for home screen installation -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIldvcmRsZSBHYW1lIiwKICAic2hvcnRfbmFtZSI6ICJXb3JsZUxhbmNvdXZlciIsCiAgInN0YXJ0X3VybCI6ICJodHRwczovL3d3dy53b3JsZC5jb20vIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIxMjEyMTMsCiAgInRpbWV6b25lX2NvbG9yIjogIjUzOGQ0ZSIsCiAgImljb25zIjogewogICAgInN0YXJ0X2NvbnRhaW5lciI6IFsKICAgICAgewogICAgICAgICJoZWFkZXJzIjogewogICAgICAgICAgICAid2lkdGgiOiAiMTIwMCIsCiAgICAgICAgICAgICJoZWlnaHQiOiAiMTIwMCIsCiAgICAgICAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLzE4MCAvMTgwIDxzdWIgY2xhc3M9InN0YXJ0X2NvbnRhaW5lciI+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzEyMTIxMyIgY3g9IjkwIiBjeT0iOTAiIHI9IjE0MCI+V09ERUw8L3RleHQ+PC9zdWI+CiAgICAgICAgICB9CiAgICAgIH0KICAgIF0KICB9Cn0=">
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#121213">
+    
+    <!-- Microsoft/Windows tile colors -->
+    <meta name="msapplication-TileColor" content="#121213">
+    <meta name="msapplication-config" content="data:application/xml,<xml version='1.0' encoding='utf-8'><msapplication>tile><square150x150logo src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 150 150%22><rect width=%22150%22 height=%22150%22 fill=%22%23121213%22/><rect x=%2215%22 y=%2215%22 width=%2222.5%22 height=%2222.5%22 fill=%22%23538d4e%22/><rect x=%2245%22 y=%2215%22 width=%2222.5%22 height=%2222.5%22 fill=%22%23b59f3b%22/><rect x=%2275%22 y=%2215%22 width=%2222.5%22 height=%2222.5%22 fill=%22%233a3a3c%22/><rect x=%22105%22 y=%2215%22 width=%2222.5%22 height=%2222.5%22 fill=%22%23538d4e%22/><rect x=%2215%22 y=%2252.5%22 width=%2222.5%22 height=%2222.5%22 fill=%22%23b59f3b%22/><rect x=%2245%22 y=%2252.5%22 width=%2222.5%22 height=%2222.5%22 fill=%22%233a3a3c%22/><rect x=%2275%22 y=%2252.5%22 width=%2222.5%22 height=%2222.5%22 fill=%22%23538d4e%22/><rect x=%22105%22 y=%2252.5%22 width=%2222.5%22 height=%2222.5%22 fill=%22%23b59f3b%22/></svg>'/></tile></msapplication></xml>"/>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -200,7 +217,21 @@
     <div class="message" id="message" role="alert" aria-live="polite"></div>
     
     <div class="game-container">
-        <h1>WORDLE</h1>
+        <!-- Icon added next to Wordle title -->
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <svg width="32" height="32" viewBox="0 0 100 100" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">
+                <rect width="100" height="100" fill="#121213"/>
+                <rect x="10" y="10" width="15" height="15" fill="#538d4e"/>
+                <rect x="30" y="10" width="15" height="15" fill="#b59f3b"/>
+                <rect x="50" y="10" width="15" height="15" fill="#3a3a3c"/>
+                <rect x="70" y="10" width="15" height="15" fill="#538d4e"/>
+                <rect x="10" y="35" width="15" height="15" fill="#b59f3b"/>
+                <rect x="30" y="35" width="15" height="15" fill="#3a3a3c"/>
+                <rect x="50" y="35" width="15" height="15" fill="#538d4e"/>
+                <rect x="70" y="35" width="15" height="15" fill="#b59f3b"/>
+            </svg>
+            <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">WORDLE</h1>
+        </div>
         
         <div class="input-container">
             <input 
@@ -496,9 +527,8 @@
                         button.className += ' wide';
                     }
                     
-                    // FIXED: Prevent input field update when keyboard is clicked
                     button.addEventListener('click', (e) => {
-                        e.preventDefault(); // Prevent default behavior
+                        e.preventDefault();
                         handleKeyClick(key);
                     });
                     
@@ -541,10 +571,8 @@
         }
 
         function handleInputChange(event) {
-            // Auto-uppercase the input
             event.target.value = event.target.value.toUpperCase();
             
-            // Update the game board with the input
             const inputText = event.target.value;
             for (let i = 0; i < Math.min(inputText.length, WORD_LENGTH); i++) {
                 const tile = document.getElementById(`tile-${currentRow}-${i}`);
@@ -552,7 +580,6 @@
                 tile.setAttribute('aria-label', `Letter ${inputText[i]} in position ${i + 1}`);
             }
             
-            // Clear remaining tiles
             for (let i = inputText.length; i < WORD_LENGTH; i++) {
                 const tile = document.getElementById(`tile-${currentRow}-${i}`);
                 tile.textContent = '';
@@ -576,13 +603,10 @@
 
         function addLetter(letter) {
             if (currentTile < WORD_LENGTH) {
-                // FIXED: Only update the game board, NOT the input field
                 const tile = document.getElementById(`tile-${currentRow}-${currentTile}`);
                 tile.textContent = letter;
                 tile.setAttribute('aria-label', `Letter ${letter} in position ${currentTile + 1}`);
                 currentTile++;
-                
-                // DON'T update the input field here to prevent double triggering
             }
         }
 
@@ -592,8 +616,6 @@
                 const tile = document.getElementById(`tile-${currentRow}-${currentTile}`);
                 tile.textContent = '';
                 tile.setAttribute('aria-label', `Empty tile ${currentTile + 1}`);
-                
-                // DON'T update the input field here to prevent double triggering
             }
         }
 
@@ -603,7 +625,6 @@
                 return;
             }
             
-            // FIXED: Get the word from the game board, not the input field
             const guess = getCurrentWord();
             
             const validationList = isExternalWordListLoaded ? wordList : getDefaultWordList();
@@ -634,7 +655,6 @@
             } else {
                 currentRow++;
                 currentTile = 0;
-                // Clear both game board and input field for next guess
                 clearCurrentRow();
                 getCachedElement('wordInput').value = '';
             }
